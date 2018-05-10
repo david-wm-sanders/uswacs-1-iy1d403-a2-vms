@@ -63,6 +63,9 @@ I can't `ping 8.8.8.8` as there is "No route to host". I think this is probably 
 * Can see network information for ESXi using commands at https://communities.vmware.com/thread/187557
 * I need to find a way to get ESXi to pick up and configure the NAT.
 
+#### Get the NAT to work with ESXi:
+* See screenshots task2_8*
+
 ## **todo:**
 * Install VMware Tools inside `Win2016 Domain Controller`
 * Fix NAT for ESXi
