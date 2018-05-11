@@ -66,6 +66,13 @@ I can't `ping 8.8.8.8` as there is "No route to host". I think this is probably 
 ##### Get the NAT to work with ESXi:
 * See screenshots task2_8*
 
+#### DC Setup
+* https://blogs.technet.microsoft.com/canitpro/2017/02/22/step-by-step-setting-up-active-directory-in-windows-server-2016/
+* https://ittutorials.net/microsoft/windows-server-2016/setting-up-active-directory-ad-in-windows-server-2016/
+
+##### DSRM PW:
+54321qwert*
+
+
 ## **todo:**
-* Install VMware Tools inside `Win2016 Domain Controller`
-* Configure Domain Controller and Active Directory
+* Set up User Server...
