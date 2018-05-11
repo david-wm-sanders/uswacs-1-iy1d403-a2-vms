@@ -73,6 +73,11 @@ I can't `ping 8.8.8.8` as there is "No route to host". I think this is probably 
 ##### DSRM PW:
 54321qwert*
 
+## Task 3
+
+#### Setup Win10 Enterprise Client in VMware
+Done: use Domain Join when installing, create a local `Client` account from which to change the DNS to point towards the DC.
 
 ## **todo:**
-* Set up User Server...
+* Do Task 3
+ * Create Active Directory accounts so we can login from the client
