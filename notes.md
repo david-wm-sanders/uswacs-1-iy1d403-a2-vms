@@ -1,5 +1,11 @@
 # Research and Notes
 
+## Other
+#### Report Writing
+##### Writing Introductions, Abstracts, Summaries, and Conclusions
+https://thesistips.wordpress.com/2012/03/25/how-to-write-your-introduction-abstract-and-summary/
+
+
 ## Task 1
 
 #### VMware vSphere 6 Enterprise Plus Serial No.:
