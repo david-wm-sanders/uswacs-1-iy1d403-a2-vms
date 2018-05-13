@@ -16,7 +16,7 @@ In a real-world deployment of ESXi, it would be installed bare-metal -- in other
 
 \subsubsection*{Create a new virtual machine in VMware Workstation}
 \begin{enumerate}[resume*=task1methodology]
-  \item Create a new virtual machine for ESXi in VMware Workstation 12. Notable steps:
+  \item Create a new virtual machine for ESXi in VMware Workstation 12. I have highlighted some notable steps below:
     \begin{enumerate}[label=\alph*)]
       \item Select the ESXi ISO in the `Guest Operating System Installation' step.
         % \begin{minipage}{\linewidth}
@@ -28,7 +28,7 @@ In a real-world deployment of ESXi, it would be installed bare-metal -- in other
           \label{fig:task1:02_vmwarewiz_02}
         \end{figure}
         % \end{minipage}
-      \item Increase the `Number of processors' and `Number of cores per processor' in the `Processor Configuration' step because several VMs will be running within this ESXi VM.
+      \item Increase the `Number of processors' and `Number of cores per processor' in the `Processor Configuration' step as several VMs will be running within this ESXi VM.
         \begin{figure}[H]
           \centering
           \captionsetup{skip=2pt}
@@ -36,7 +36,7 @@ In a real-world deployment of ESXi, it would be installed bare-metal -- in other
           \caption{Increasing the number of processors for the ESXi VM}
           \label{fig:task1:02_vmwarewiz_03}
         \end{figure}
-      \item Increase the amount of memory allocated to the ESXi VM in the `Memory for the Virtual Machine' step as because several VMs will be running within this ESXi VM. With consideration of the failover configuration of Task 2 \todo{ref this}, I decided to give the VM 16GB of memory. This would allow each of the 4 VMs inside ESXi \textit{(2 servers and a failover for each)} to have 4GB of memory.
+      \item Increase the amount of memory allocated to the ESXi VM in the `Memory for the Virtual Machine' step as several VMs will be running within this ESXi VM. With consideration of the failover configuration of Task 2 \todo{ref this}, I decided to give the VM 16GB of memory. This would allow each of the 4 VMs inside ESXi \textit{(2 servers and a failover for each)} to have 4GB of memory.
         \begin{figure}[H]
           \centering
           \captionsetup{skip=2pt}
@@ -78,10 +78,10 @@ In a real-world deployment of ESXi, it would be installed bare-metal -- in other
   \label{fig:task1:02_vmwarewiz_11_issue}
 \end{figure}
 
-Following the link provided in the pop-up redirected me to `VMware Knowledge Base Article 2146361'\footnote{\url{https://kb.vmware.com/s/article/2146361}}. Following steps 1 and 2, as detailed on the site under `Resolution' fixed the issue. I have included screenshots of these steps as Figures~\ref{fig:task1:02_vmware_11_res1} and~\ref{fig:task1:02_vmware_11_res2} in the \nameref{app:ancillaryscreenshots} appendix. After completing this resolution process, I was able to start the ESXi VM in VMware Workstation successfully and continued with the task.
+\noindent Following the link provided in the pop-up redirected me to `VMware Knowledge Base Article 2146361'\footnote{\url{https://kb.vmware.com/s/article/2146361}}. Following steps 1 and 2, as detailed on the site under `Resolution' fixed the issue. I have included screenshots of these steps as Figures~\ref{fig:task1:02_vmware_11_res1} and~\ref{fig:task1:02_vmware_11_res2} in the \nameref{app:ancillaryscreenshots} appendix. After completing this resolution process, I was able to start the ESXi VM in VMware Workstation successfully and continued with the task.
 
 \begin{enumerate}[resume*=task1methodology]
-  \item Step through the EXSi installer. Notable steps:
+  \item Step through the EXSi installer. I have highlighted some notable steps below:
     \begin{enumerate}[label=\alph*)]
       \item Select the local storage device.
         \begin{figure}[H]
@@ -96,9 +96,45 @@ Following the link provided in the pop-up redirected me to `VMware Knowledge Bas
           \centering
           \captionsetup{skip=2pt}
           \includegraphics{VMware_ESXi_6-2018-05-08-17-41-48_crop}
-          \caption{Selecting the keyboard layout}
+          \caption{Selecting the keyboard layout in the ESXi install}
           \label{fig:task1:esxiinstall_02}
         \end{figure}
-      \item x
+      \item Setting the `root' password -- in a real-world installation it should be unique, relatively long; and contain a wide combination of letters (both lowercase and uppercase), numbers, and symbols. This password will be used to login via the vSphere Web or Desktop Clients in order to manage the ESXi remotely. It is also used as the password for logging into the ESXi via SSH.
+        \begin{figure}[H]
+          \centering
+          \captionsetup{skip=2pt}
+          \includegraphics{VMware_ESXi_6-2018-05-08-17-42-30_crop}
+          \caption{Setting the root password in the ESXi install}
+          \label{fig:task1:esxiinstall_03}
+        \end{figure}
+      \item Confirm the installation of ESXi.
+        \begin{figure}[H]
+          \centering
+          \captionsetup{skip=2pt}
+          \includegraphics[width=\textwidth]{VMware_ESXi_6-2018-05-08-17-44-17_crop}
+          \caption{Confirm the ESXi installation}
+          \label{fig:task1:esxiinstall_04}
+        \end{figure}
+      \item Reboot to complete the ESXi installation.
+        % \begin{figure}[H]
+        %   \centering
+        %   \captionsetup{skip=2pt}
+        %   \includegraphics{VMware_ESXi_6-2018-05-08-17-47-59_crop}
+        %   \caption{Reboot in order to complete the ESXi installtion}
+        %   \label{fig:task1:esxiinstall_04}
+        % \end{figure}
+      \item After the ESXi instance has rebooted, make a note of the IPv4 and IPv6 addresses of the instance. In my case these were:
+      \begin{itemize}[leftmargin=1.5cm]
+        \item [IPv4:] \texttt{192.168.254.136}
+        \item [IPv6:] \texttt{[fe80::20c:29ff:fe6b:7530]}
+      \end{itemize}
+      These can be seen in the screenshot in Figure~\ref{fig:task1:esxiinstall_up} in the \nameref{app:ancillaryscreenshots} appendix.
     \end{enumerate}
+\end{enumerate}
+
+\noindent It should be noted that the IPv6 address is marked as `STATIC' rather than `DHCP' -- I have decided to use this address to connect to the ESXi instance as this will prevent issues related to the IPv4 address possibly changing in the event I restart the ESXi VM, restart VMware Workstation, or restart my physical workstation.
+
+\subsubsection*{Connecting to the ESXI instance}
+\begin{enumerate}[resume*=task1methodology]
+  \item Connect to the box...
 \end{enumerate}
