@@ -86,4 +86,8 @@ Done: use Domain Join when installing, create a local `Client` account from whic
 
 ## **todo:**
 * Do Task 3
- * Create Active Directory accounts so we can login from the client
+  * Create Active Directory accounts so we can login from the client
+
+* Purge serial numbers from repo before publicising:
+  * Remove from notes.md
+  * Remove `task1_1_downloadvsphere.PNG`
