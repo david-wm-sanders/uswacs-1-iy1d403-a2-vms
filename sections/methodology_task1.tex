@@ -12,12 +12,12 @@ In a real-world deployment of ESXi, it would be installed bare-metal -- in other
   \item Download the vSphere environment from the \textit{OnTheHub\textsuperscript{\textregistered}} website\footnote{\url{https://onthehub.com/}}.
 \end{enumerate}
 
-\noindent From Figure~\ref{fig:task1:01_downloadvsphere} in the \nameref{app:ancillaryscreenshots} appendix, it shows that three pieces of software are available for download. \todo{Detail confusion because of the `update' iso - this is actually only ESXi 6.0.0 and I erroneously installed it.}
+\noindent From Figure~\ref{fig:task1:01_downloadvsphere} in the \nameref{app:ancillaryscreenshots} appendix, it shows that three pieces of software are available for download. It should be noted here that it is not made explicitly clear that the `VMware-VMvisor-Installer-6.0.0.update02-3620759.x86\_64.iso` is an installer for an updated version of ESXi 6.0.0 and is not an updated version of ESXi 6.5. As a result of this confusion, I initially installed the wrong version of ESXi insider VMware Workstation. In the methodology, I will include instructions for updating ESXi from version 6.0 to 6.5.
 
 \subsubsection*{Create a new virtual machine in VMware Workstation}
 \begin{enumerate}[resume*=task1methodology]
   \item Create a new virtual machine for ESXi in VMware Workstation 12. I have highlighted some notable steps below:
-    \begin{enumerate}[label=\alph*)]
+    \begin{enumerate}[label=(\alph*)]
       \item Select the ESXi ISO in the `Guest Operating System Installation' step.
         % \begin{minipage}{\linewidth}
         \begin{figure}[H]
@@ -82,7 +82,7 @@ In a real-world deployment of ESXi, it would be installed bare-metal -- in other
 
 \begin{enumerate}[resume*=task1methodology]
   \item Step through the EXSi installer. I have highlighted some notable steps below:
-    \begin{enumerate}[label=\alph*)]
+    \begin{enumerate}[label=(\alph*)]
       \item Select the local storage device.
         \begin{figure}[H]
           \centering
@@ -134,7 +134,44 @@ In a real-world deployment of ESXi, it would be installed bare-metal -- in other
 
 \noindent It should be noted that the IPv6 address is marked as `STATIC' rather than `DHCP' -- I have decided to use this address to connect to the ESXi instance as this will prevent issues related to the IPv4 address possibly changing in the event I restart the ESXi VM, restart VMware Workstation, or restart my physical workstation.
 
-\subsubsection*{Connecting to the ESXI instance}
+\subsubsection*{Connecting to the ESXi instance}
+Several methods exist for managing the ESXi instance remotely -- primarily they are the vSphere Client (desktop) and vSphere Web Client. I will detail how to use both below.
+
 \begin{enumerate}[resume*=task1methodology]
-  \item Connect to the box...
+  \item Connect to the ESXi instance:
+    \begin{enumerate}[label=(\alph*)]
+      \item via the vSphere Client (desktop):
+        \begin{enumerate}[label=\roman*.]
+          \item Install the vSphere Client (desktop) from the\\`VMware-viclient-all-6.0.0-3562874.exe' that was downloaded as part of the vSphere environment package from \textit{OnTheHub\textsuperscript{\textregistered}}.
+            \begin{figure}[H]
+              \centering
+              \captionsetup{skip=2pt}
+              \includegraphics{task1_04_vsphereclientinstall_1}
+              \caption{Running the vSphere Client (desktop) installer}
+              \label{fig:task1:vspheredesktopclient_01}
+            \end{figure}
+          \item Start `VMware vSphere Client'.
+            \begin{figure}[H]
+              \centering
+              \captionsetup{skip=2pt}
+              \includegraphics{task1_04_vsphereclientinstall_4}
+              \caption{Running the vSphere Client (desktop)}
+              \label{fig:task1:vspheredesktopclient_02}
+            \end{figure}
+          \item Connect to the EXSi instance using the IPv6 address. At the first connection, a pop-up warning about the certificate appears. Before ignoring this, I checked the thumbprint of the certificate against the `SSL Thumbprint (SHA1)' reported in the ESXi instance. This is shown in Figure~\ref{fig:task1:vspheredesktopclient_03} in the \nameref{app:ancillaryscreenshots} appendix.
+            \begin{figure}[H]
+              \centering
+              \captionsetup{skip=2pt}
+              \includegraphics[width=\textwidth]{task1_04_vsphereclientinstall_6}
+              \caption{Connected to the ESXi instance using the vSphere Client and IPv6}
+              \label{fig:task1:vspheredesktopclient_04}
+            \end{figure}
+        \end{enumerate}
+      \item via the vSphere Web Client:
+        \begin{enumerate}[label=\roman*.]
+          \item Connect to \texttt{\url{https://[fe80::20c:29ff:fe6b:7530]/ui/}}. Figures~\ref{fig:task1:esxiwebui_01} and~\ref{fig:task1:esxiwebui_02} in the \nameref{app:ancillaryscreenshots} appendix show the login and host overview pages of the Web Client respectively.
+        \end{enumerate}
+    \end{enumerate}
 \end{enumerate}
+
+\noindent On the vSphere Client (desktop) `Connection' window (as shown in Figure~\ref{fig:task1:vspheredesktopclient_02}), it says ``All vSphere features introduced in vSphere 5.5. and beyond are available only through the vSphere Web Client. The traditional vSphere Client will continue to operate, supporting the same feature set as vSphere 5.0.'' Due to this, I decided to, as far as possible, manage the ESXi instance via the Web Client interface. I did, however, have to use the vSphere Client (desktop) for some tasks such as configuring the instance to use the NAT adapter correctly.
