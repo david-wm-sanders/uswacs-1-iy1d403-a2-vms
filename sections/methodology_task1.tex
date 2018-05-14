@@ -134,7 +134,7 @@ In a real-world deployment of ESXi, it would be installed bare-metal -- in other
 
 \noindent It should be noted that the IPv6 address is marked as `STATIC' rather than `DHCP' -- I have decided to use this address to connect to the ESXi instance as this will prevent issues related to the IPv4 address possibly changing in the event I restart the ESXi VM, restart VMware Workstation, or restart my physical workstation.
 
-\subsubsection*{Connecting to the ESXi instance}
+\subsubsection*{Connect to the ESXi instance}
 Several methods exist for managing the ESXi instance remotely -- primarily they are the vSphere Client (desktop) and vSphere Web Client. I will detail how to use both below.
 
 \begin{enumerate}[resume*=task1methodology]
@@ -158,7 +158,7 @@ Several methods exist for managing the ESXi instance remotely -- primarily they 
               \caption{Running the vSphere Client (desktop)}
               \label{fig:task1:vspheredesktopclient_02}
             \end{figure}
-          \item Connect to the EXSi instance using the IPv6 address. At the first connection, a pop-up warning about the certificate appears. Before ignoring this, I checked the thumbprint of the certificate against the `SSL Thumbprint (SHA1)' reported in the ESXi instance. This is shown in Figure~\ref{fig:task1:vspheredesktopclient_03} in the \nameref{app:ancillaryscreenshots} appendix.
+          \item Connect to the ESXi instance using the IPv6 address. At the first connection, a pop-up warning about the certificate appears. Before ignoring this, I checked the thumbprint of the certificate against the `SSL Thumbprint (SHA1)' reported in the ESXi instance. This is shown in Figure~\ref{fig:task1:vspheredesktopclient_03} in the \nameref{app:ancillaryscreenshots} appendix.
             \begin{figure}[H]
               \centering
               \captionsetup{skip=2pt}
