@@ -1,5 +1,5 @@
 \pagebreak
-\subsection{Task 1 - Building a VMware Environment}
+\subsection{Task 1: Build a VMware Environment}
 For this demonstration secure data centre environment setup, I installed ESXi inside VMware Workstation 12 on my University of South Wales Applied Cyber Security designated workstation. This allowed me to use a single physical machine to manage and screenshot (via VMware's `Print Screen' functionality) the ESXi installation directly, manage the servers installed inside ESXi via the vSphere Web Client and vSphere Client (desktop), and test the configuration from a Windows 10 Enterprise client that was also installed inside VMware Workstation 12.
 
 In a real-world deployment of ESXi, it would be installed bare-metal -- in other words, ESXi would be installed directly onto the physical hardware as the primary Operating System and would then be managed remotely for the most part.
@@ -7,16 +7,16 @@ In a real-world deployment of ESXi, it would be installed bare-metal -- in other
 \bigskip
 \noindent The process for building the VMware environment is as follows:
 
-\subsubsection*{Download the vSphere environment software}
+\subsubsection{Download the vSphere environment software}
 \begin{enumerate}[series=task1methodology]
   \item Download the vSphere environment from the \textit{OnTheHub\textsuperscript{\textregistered}} website\footnote{\url{https://onthehub.com/}}.
 \end{enumerate}
 
 \noindent From Figure~\ref{fig:task1:01_downloadvsphere} in the \nameref{app:ancillaryscreenshots} appendix, it shows that three pieces of software are available for download. It should be noted here that it is not made explicitly clear that the `VMware-VMvisor-Installer-6.0.0.update02-3620759.x86\_64.iso` is an installer for an updated version of ESXi 6.0.0 and is not an updated version of ESXi 6.5. As a result of this confusion, I initially installed the wrong version of ESXi insider VMware Workstation. In the methodology, I will include instructions for updating ESXi from version 6.0 to 6.5.
 
-\subsubsection*{Create a new virtual machine in VMware Workstation}
+\subsubsection{Create a new VM in VMware Workstation}
 \begin{enumerate}[resume*=task1methodology]
-  \item Create a new virtual machine for ESXi in VMware Workstation 12. I have highlighted some notable steps below:
+  \item Create a new virtual machine for ESXi in VMware Workstation 12. I have detailed some notable steps below:
     \begin{enumerate}[label=(\alph*)]
       \item Select the ESXi ISO in the `Guest Operating System Installation' step.
         % \begin{minipage}{\linewidth}
@@ -63,7 +63,7 @@ In a real-world deployment of ESXi, it would be installed bare-metal -- in other
     \end{enumerate}
 \end{enumerate}
 
-\subsubsection*{Install ESXi in the new virtual machine}
+\subsubsection{Install ESXi in the new VM}
 \begin{enumerate}[resume*=task1methodology]
   \item Start the new ESXi VM in VMware Workstation.
 \end{enumerate}
@@ -134,8 +134,8 @@ In a real-world deployment of ESXi, it would be installed bare-metal -- in other
 
 \noindent It should be noted that the IPv6 address is marked as `STATIC' rather than `DHCP' -- I have decided to use this address to connect to the ESXi instance as this will prevent issues related to the IPv4 address possibly changing in the event I restart the ESXi VM, restart VMware Workstation, or restart my physical workstation.
 
-\subsubsection*{Connect to the ESXi instance}
-Several methods exist for managing the ESXi instance remotely -- primarily they are the vSphere Client (desktop) and vSphere Web Client. I will detail how to use both below.
+\subsubsection{Connect to the ESXi instance}
+Several methods exist for managing the ESXi instance remotely -- primarily they are the vSphere Client (desktop) and vSphere Web Client. I will detail how to setup and use both below.
 
 \begin{enumerate}[resume*=task1methodology]
   \item Connect to the ESXi instance:

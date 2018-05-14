@@ -1,14 +1,14 @@
 \pagebreak
-\subsection{Task 2 - Building and Configuring the Server Array}
+\subsection{Task 2: Build and Configure the Server Array}
 
-\subsubsection*{Download Windows Server 2016 ISO}
+\subsubsection{Download Windows Server 2016 ISO}
 \begin{enumerate}[series=task2methodology1]
-  \item Download Windows Server 2016 from the `Microsoft Imagine' website, as shown in Figure~\ref{fig:task2:winserver2016_download} in the \nameref{app:ancillaryscreenshots} appendix.
+  \item Download Windows Server 2016 from the `Microsoft Imagine'\footnote{\url{https://imagine.microsoft.com/en-us}} website, as shown in Figure~\ref{fig:task2:winserver2016_download} in the \nameref{app:ancillaryscreenshots} appendix.
 \end{enumerate}
 
 \noindent I have taken a different approach for the next step to the normal approach of uploading the ISO via the vSphere Web Client or vSphere Client (desktop). This is due to a bug with ESXi 6.0.0 that prevents uploads when using the IPv6 address to access the instance's Web Client interface. When you use the `Datastore Browser' to upload a file, the upload freezes at 0\% and does not progress at all.
 
-\subsubsection*{Transfer the ISO into the ESXi instance}
+\subsubsection{Transfer the ISO into the ESXi instance}
 \begin{enumerate}[resume*=task2methodology1]
   \item Use the Web Client to enable SSH access to the ESXi instance by going to `Host > Actions > Services > Enable Secure Shell (SSH)'.
   \item Download \texttt{pscp.exe} from the PuTTY website\footnote{\url{https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html}}.
@@ -23,7 +23,7 @@
 
 \noindent When not using the SSH service for remote administration, it should be disabled to reduce the attack surface of the ESXi instance. It should be noted that restarting the ESXi instance will automatically re-disable the SSH service.
 
-\subsubsection*{Set up an Active Directory Domain Controller}
+\subsubsection{Set up an Active Directory Domain Controller}
 \begin{enumerate}[series=task2methodology2]
   \item Create a new VM in the Web Client for the ESXi instance. Notable steps are detailed forthwith:
     \begin{enumerate}[label=(\alph*)]
@@ -61,5 +61,5 @@
   \item x
 \end{enumerate}
 
-\subsubsection*{Set up a User Server}
-\subsubsection*{Create a failover configuration}
+\subsubsection{Set up a User Server}
+\subsubsection{Create a failover configuration}
