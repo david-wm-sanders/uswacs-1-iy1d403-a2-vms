@@ -23,7 +23,7 @@
 
 \noindent When not using the SSH service for remote administration, it should be disabled to reduce the attack surface of the ESXi instance. It should be noted that restarting the ESXi instance will automatically re-disable the SSH service.
 
-\subsubsection{Set up an Active Directory Domain Controller}
+\subsubsection{Install Windows Server 2016 in a new VM}
 \begin{enumerate}[series=task2methodology2]
   \item Create a new VM in the Web Client for the ESXi instance. Notable steps are detailed forthwith:
     \begin{enumerate}[label=(\alph*)]
@@ -44,13 +44,13 @@
           \label{fig:task2:vspherewc_newvm2}
         \end{figure}
       \item Mount the Windows Server 2016 ISO in the CD drive for the new virtual machine.
-      \begin{figure}[H]
-        \centering
-        \captionsetup{skip=2pt}
-        \includegraphics[width=\textwidth]{task2_06_winserver2016_9_dc_crop}
-        \caption{Selecting the ISO to run at boot in the new VM}
-        \label{fig:task2:vspherewc_newvm3}
-      \end{figure}
+        \begin{figure}[H]
+          \centering
+          \captionsetup{skip=2pt}
+          \includegraphics[width=\textwidth]{task2_06_winserver2016_9_dc_crop}
+          \caption{Selecting the ISO to run at boot in the new VM}
+          \label{fig:task2:vspherewc_newvm3}
+        \end{figure}
     \end{enumerate}
 \end{enumerate}
 
@@ -58,8 +58,37 @@
 \noindent For the next steps, I used the vSphere Client to display the console of specific VMs inside ESXi. This is primarily because of a bug in ESXi 6.0 that prevents consoles from being shown in the browser, as shown in Figures~\ref{fig:task2:vspherewc_bug1} and~\ref{fig:task2:vspherewc_bug2} in the \nameref{app:ancillaryscreenshots} appendix. However, the vSphere Client is also nicer to use as it responds faster and does not attempt to scale the console to the size of the browser window.
 
 \begin{enumerate}[resume*=task2methodology2]
-  \item x
+  \item \label{task2:installwin2016server} Open a console in the vSphere Client (desktop) to the newly created VM for Windows and start it.
+  \item Install Windows Server in the VM. Notable steps include:
+    \begin{enumerate}[label=(\alph*)]
+      \item Choosing `Windows Server 2016 Datacenter Evaluation (Desktop Experience)' edition as shown in the image below. This is done to ensure that the full feature set required for the project is included in the installation and that a desktop is available to make the server easier to configure.
+        \begin{figure}[H]
+          \centering
+          \captionsetup{skip=2pt}
+          \includegraphics[width=\textwidth]{task2_6_winserver2016_15_dc}
+          \caption{Choosing `Datacenter Evaluation (Desktop Experience)'}
+          \label{fig:task2:vspherec_windc1}
+        \end{figure}
+      \item Selecting a strong password for the administrative user. Below I have included a screenshot that shows the warning displayed in the event that the password provided does not meet the minimum complexity requirements.
+        \begin{figure}[H]
+          \centering
+          \captionsetup{skip=2pt}
+          \includegraphics[width=\textwidth]{task2_6_winserver2016_21_dc}
+          \caption{Warning message displayed if password does not meet complexity requirements}
+          \label{fig:task2:vspherec_windc2}
+        \end{figure}
+    \end{enumerate}
 \end{enumerate}
+
+\subsubsection{Configure an Active Directory Domain Controller}
+\begin{enumerate}[series=task2methodology3]
+  \item Login to the Domain Controller server and in `Server Manager > Dashboard' select `Add roles and features'.
+  \item Proceed through the `Add Roles and Features Wizard' as detailed in the following steps.
+   \begin{enumerate}[label=(\alph*)]
+     \item x
+   \end{enumerate}
+\end{enumerate}
+
 
 \subsubsection{Set up a User Server}
 \subsubsection{Create a failover configuration}
