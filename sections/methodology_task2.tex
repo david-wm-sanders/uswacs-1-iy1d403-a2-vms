@@ -80,15 +80,227 @@
     \end{enumerate}
 \end{enumerate}
 
+\noindent \todo{add stuff here about fixing the NAT with ESXi? and changing the hostname}
+
 \subsubsection{Configure an Active Directory Domain Controller}
 \begin{enumerate}[series=task2methodology3]
   \item Login to the Domain Controller server and in `Server Manager > Dashboard' select `Add roles and features'.
-  \item Proceed through the `Add Roles and Features Wizard' as detailed in the following steps.
+  \item Proceed through the `Add Roles and Features Wizard' as detailed in the following steps:
    \begin{enumerate}[label=(\alph*)]
-     \item x
+     \item \todo{Select configure role-based...}
+       \begin{figure}[H]
+         \centering
+         \captionsetup{skip=2pt}
+         \includegraphics[width=\textwidth]{task2_6_winserver2016_25_dc_config_3}
+         \caption{\todo{replace this with a proper figure description}}
+         \label{fig:task2:vspherec_windc2_c3}
+       \end{figure}
+      \item \todo{Select destination server...}
+        \begin{figure}[H]
+          \centering
+          \captionsetup{skip=2pt}
+          \includegraphics[width=\textwidth]{task2_6_winserver2016_25_dc_config_4}
+          \caption{\todo{replace this with a proper figure description}}
+          \label{fig:task2:vspherec_windc2_c4}
+        \end{figure}
+      \item \todo{Add features for ADDS and DNS}
+        \begin{figure}[H]
+          \centering
+          \captionsetup{skip=2pt}
+          \includegraphics[width=\textwidth]{task2_6_winserver2016_25_dc_config_7}
+          \caption{\todo{replace this with a proper figure description}}
+          \label{fig:task2:vspherec_windc2_c7}
+        \end{figure}
+        \begin{figure}[H]
+          \centering
+          \captionsetup{skip=2pt}
+          \includegraphics[width=\textwidth]{task2_6_winserver2016_25_dc_config_5}
+          \caption{\todo{replace this with a proper figure description}}
+          \label{fig:task2:vspherec_windc2_c5}
+        \end{figure}
+        \begin{figure}[H]
+          \centering
+          \captionsetup{skip=2pt}
+          \includegraphics[width=\textwidth]{task2_6_winserver2016_25_dc_config_6}
+          \caption{\todo{replace this with a proper figure description}}
+          \label{fig:task2:vspherec_windc2_c6}
+        \end{figure}
+      \item \todo{Confirm installation selections...}
+        \begin{figure}[H]
+          \centering
+          \captionsetup{skip=2pt}
+          \includegraphics[width=\textwidth]{task2_6_winserver2016_25_dc_config_10}
+          \caption{\todo{replace this with a proper figure description}}
+          \label{fig:task2:vspherec_windc2_c10}
+        \end{figure}
+      \item \todo{Create a new forest for the ADDS deployment configuration}
+        \begin{figure}[H]
+          \centering
+          \captionsetup{skip=2pt}
+          \includegraphics[width=\textwidth]{task2_6_winserver2016_25_dc_config_13}
+          \caption{\todo{replace this with a proper figure description}}
+          \label{fig:task2:vspherec_windc2_c13}
+        \end{figure}
+      \item \todo{Set domain controller options...}
+        \begin{figure}[H]
+          \centering
+          \captionsetup{skip=2pt}
+          \includegraphics[width=\textwidth]{task2_6_winserver2016_25_dc_config_14}
+          \caption{\todo{replace this with a proper figure description}}
+          \label{fig:task2:vspherec_windc2_c14}
+        \end{figure}
+      \item \todo{skip this step - it's fine xd}
+        \begin{figure}[H]
+          \centering
+          \captionsetup{skip=2pt}
+          \includegraphics[width=\textwidth]{task2_6_winserver2016_25_dc_config_15}
+          \caption{\todo{replace this with a proper figure description}}
+          \label{fig:task2:vspherec_windc2_c15}
+        \end{figure}
+      \item \todo{Set the NetBIOS name...}
+        \begin{figure}[H]
+          \centering
+          \captionsetup{skip=2pt}
+          \includegraphics[width=\textwidth]{task2_6_winserver2016_25_dc_config_16}
+          \caption{\todo{replace this with a proper figure description}}
+          \label{fig:task2:vspherec_windc2_c16}
+        \end{figure}
+      \item \todo{Leave the defaults for paths here... maybe discuss how we could use remote locations or different partitions for these, especially log files could be a write-once disk}
+        \begin{figure}[H]
+          \centering
+          \captionsetup{skip=2pt}
+          \includegraphics[width=\textwidth]{task2_6_winserver2016_25_dc_config_17}
+          \caption{\todo{replace this with a proper figure description}}
+          \label{fig:task2:vspherec_windc2_c17}
+        \end{figure}
+      \item \todo{review the options and confirm - note the ability to view the PowerShell script for this configuration, talk about how these deployments could be automated}
+        \begin{figure}[H]
+          \centering
+          \captionsetup{skip=2pt}
+          \includegraphics[width=\textwidth]{task2_6_winserver2016_25_dc_config_18}
+          \caption{\todo{replace this with a proper figure description}}
+          \label{fig:task2:vspherec_windc2_c18}
+        \end{figure}
+        \begin{figure}[H]
+          \centering
+          \captionsetup{skip=2pt}
+          \includegraphics[width=\textwidth]{task2_6_winserver2016_25_dc_config_19}
+          \caption{\todo{replace this with a proper figure description}}
+          \label{fig:task2:vspherec_windc2_c19}
+        \end{figure}
+      \item \todo{prereq check - only warnings it is fine}
+        \begin{figure}[H]
+          \centering
+          \captionsetup{skip=2pt}
+          \includegraphics[width=\textwidth]{task2_6_winserver2016_25_dc_config_20}
+          \caption{\todo{replace this with a proper figure description}}
+          \label{fig:task2:vspherec_windc2_c20}
+        \end{figure}
+      \item \todo{the server will restart after the role installation, log into the new domain as administrator when you the system has completed restart}
+        \begin{figure}[H]
+          \centering
+          \captionsetup{skip=2pt}
+          \includegraphics[width=\textwidth]{task2_6_winserver2016_25_dc_config_21}
+          \caption{\todo{replace this with a proper figure description}}
+          \label{fig:task2:vspherec_windc2_c21}
+        \end{figure}
+      \item \todo{check the dns is configured correctly to point to self (127.0.0.1) and also make the IP address static, yada yada}
+        \begin{figure}[H]
+          \centering
+          \captionsetup{skip=2pt}
+          \includegraphics[width=\textwidth]{task2_6_winserver2016_25_dc_config_22_adjustipdns}
+          \caption{\todo{replace this with a proper figure description}}
+          \label{fig:task2:vspherec_windc2_c22}
+        \end{figure}
    \end{enumerate}
 \end{enumerate}
 
 
 \subsubsection{Set up a User Server}
-\subsubsection{Create a failover configuration}
+\todo{set up the user server in a similar fashion, i won't repeat the entire process here}
+\begin{enumerate}[series=task2methodology4]
+  \item \todo{set up vm in esxi web ui}
+    \begin{figure}[H]
+      \centering
+      \captionsetup{skip=2pt}
+      \includegraphics[width=\textwidth]{task2_9_winserver2016us_1}
+      \caption{\todo{replace this with a proper figure description}}
+      \label{fig:task2:vspherec_us1}
+    \end{figure}
+  \item \todo{after install point the dns to the static ip of the dc}
+    \begin{figure}[H]
+      \centering
+      \captionsetup{skip=2pt}
+      \includegraphics[width=\textwidth]{task2_9_winserver2016us_2}
+      \caption{\todo{replace this with a proper figure description}}
+      \label{fig:task2:vspherec_us2}
+    \end{figure}
+  \item \todo{check that we can ping the dc}
+    \begin{figure}[H]
+      \centering
+      \captionsetup{skip=2pt}
+      \includegraphics[width=\textwidth]{task2_9_winserver2016us_3}
+      \caption{\todo{replace this with a proper figure description}}
+      \label{fig:task2:vspherec_us3}
+    \end{figure}
+  \item \todo{set the hostname and join the domain at the same time}
+    \begin{figure}[H]
+      \centering
+      \captionsetup{skip=2pt}
+      \includegraphics[width=\textwidth]{task2_9_winserver2016us_4}
+      \caption{\todo{replace this with a proper figure description}}
+      \label{fig:task2:vspherec_us4}
+    \end{figure}
+  \item \todo{after authenticating with the domain, am welcomed, success}
+    \begin{figure}[H]
+      \centering
+      \captionsetup{skip=2pt}
+      \includegraphics[width=\textwidth]{task2_9_winserver2016us_5}
+      \caption{\todo{replace this with a proper figure description}}
+      \label{fig:task2:vspherec_us5}
+    \end{figure}
+  \item \todo{restart to make the changes and login to the domain}
+    \begin{figure}[H]
+      \centering
+      \captionsetup{skip=2pt}
+      \includegraphics[width=\textwidth]{task2_9_winserver2016us_7}
+      \caption{\todo{replace this with a proper figure description}}
+      \label{fig:task2:vspherec_us7}
+    \end{figure}
+  \item \todo{after installing vmware tools we see this in the vsphere webui}
+    \begin{figure}[H]
+      \centering
+      \captionsetup{skip=2pt}
+      \includegraphics[width=\textwidth]{task2_9_winserver2016us_8}
+      \caption{\todo{replace this with a proper figure description}}
+      \label{fig:task2:vspherec_us8}
+    \end{figure}
+  \item \todo{Add file server role}
+    \begin{figure}[H]
+      \centering
+      \captionsetup{skip=2pt}
+      \includegraphics[width=\textwidth]{task2_9_winserver2016us_9}
+      \caption{\todo{replace this with a proper figure description}}
+      \label{fig:task2:vspherec_us9}
+    \end{figure}
+  \item \todo{set failover clustering role}
+    \begin{figure}[H]
+      \centering
+      \captionsetup{skip=2pt}
+      \includegraphics[width=\textwidth]{task2_9_winserver2016us_10}
+      \caption{\todo{replace this with a proper figure description}}
+      \label{fig:task2:vspherec_us10}
+    \end{figure}
+  \item \todo{confirm installation selections}
+    \begin{figure}[H]
+      \centering
+      \captionsetup{skip=2pt}
+      \includegraphics[width=\textwidth]{task2_9_winserver2016us_11}
+      \caption{\todo{replace this with a proper figure description}}
+      \label{fig:task2:vspherec_us11}
+    \end{figure}
+\end{enumerate}
+\subsubsection{\todo{Set up a user store shared folder}}
+\todo{some stuff here...}
+\subsubsection{\todo{Create a failover configuration}}
+\todo{ahhhhh, how? \url{https://docs.vmware.com/en/VMware-vSphere/6.0/vsphere-esxi-vcenter-server-601-setup-mscs.pdf}}

@@ -85,8 +85,10 @@ I can't `ping 8.8.8.8` as there is "No route to host". I think this is probably 
 Done: use Domain Join when installing, create a local `Client` account from which to change the DNS to point towards the DC.
 
 ## **todo:**
-* Do Task 3
-  * Create Active Directory accounts so we can login from the client
+* Write up Task 3 and Task 4
+* Crop screenshots
+* Rescale screenshots overall
+* Fill out all todos
 
 * Purge serial numbers from repo before publicising:
   * Remove from notes.md

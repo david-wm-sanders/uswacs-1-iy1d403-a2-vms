@@ -1,2 +1,107 @@
 \pagebreak
-\subsection{Task 3}
+\subsection{Task 3: Building the Client PC and Setting up AD Users}
+\subsubsection{Set up Windows 10 Enterprise client}
+\begin{enumerate}[series=task3methodology1]
+  \item \todo{Download Windows 10 Enterprise from Imagine}
+  \item \todo{Create a new VM in VMware Workstation}
+  \item \todo{Install Windows 10 Enterprise in the VM. Notable steps:}
+    \begin{enumerate}[label=(\alph*)]
+      \item \todo{create a new client account for the machine}
+        \begin{figure}[H]
+          \centering
+          \captionsetup{skip=2pt}
+          \includegraphics[width=\textwidth]{IY1D403_Windows_10_x64_Client-2018-05-11-20-33-34}
+          \caption{\todo{replace this with a proper figure description}}
+          \label{fig:task2:win10client_01}
+        \end{figure}
+      \item \todo{select no for a bunch of silly steps - must be a way to install enterprise easier than this...}
+        \begin{figure}[H]
+          \centering
+          \captionsetup{skip=2pt}
+          \includegraphics[width=\textwidth]{IY1D403_Windows_10_x64_Client-2018-05-11-20-36-12}
+          \caption{\todo{replace this with a proper figure description}}
+          \label{fig:task2:win10client_02}
+        \end{figure}
+      \item \todo{point the client to the ip for the domain controller}
+        \begin{figure}[H]
+          \centering
+          \captionsetup{skip=2pt}
+          \includegraphics[width=\textwidth]{IY1D403_Windows_10_x64_Client-2018-05-11-20-45-19}
+          \caption{\todo{replace this with a proper figure description}}
+          \label{fig:task2:win10client_03}
+        \end{figure}
+      \item \todo{connect to the domain}
+        \begin{figure}[H]
+          \centering
+          \captionsetup{skip=2pt}
+          \includegraphics[width=\textwidth]{IY1D403_Windows_10_x64_Client-2018-05-17-19-04-55}
+          \caption{\todo{replace this with a proper figure description}}
+          \label{fig:task2:win10client_04}
+        \end{figure}
+    \end{enumerate}
+\end{enumerate}
+\subsubsection{Creating user accounts within Active Directory}
+\begin{enumerate}[series=task3methodology2]
+  \item \todo{open `Active Directory Users and Computers' from `Tools' in the `Server Manager' - in `Users' we can see the accounts and security groups that are included by default}
+    \begin{figure}[H]
+      \centering
+      \captionsetup{skip=2pt}
+      \includegraphics[width=\textwidth]{task3_01_ad_config_01}
+      \caption{\todo{replace this with a proper figure description}}
+      \label{fig:task2:ad_config_01}
+    \end{figure}
+  \item \todo{detail creating a new organisational unit called `Resources' and sub-ous based on privileges with the domain}
+  \item \todo{create my account}
+    \begin{figure}[H]
+      \centering
+      \captionsetup{skip=2pt}
+      \includegraphics[width=\textwidth]{task3_01_ad_config_02}
+      \caption{\todo{replace this with a proper figure description}}
+      \label{fig:task2:ad_config_02}
+    \end{figure}
+    \begin{figure}[H]
+      \centering
+      \captionsetup{skip=2pt}
+      \includegraphics[width=\textwidth]{task3_01_ad_config_03}
+      \caption{\todo{replace this with a proper figure description}}
+      \label{fig:task2:ad_config_03}
+    \end{figure}
+    \begin{figure}[H]
+      \centering
+      \captionsetup{skip=2pt}
+      \includegraphics[width=\textwidth]{task3_01_ad_config_04}
+      \caption{\todo{replace this with a proper figure description}}
+      \label{fig:task2:ad_config_04}
+    \end{figure}
+  \item \todo{set up a second sysop: marcus}
+    \begin{figure}[H]
+      \centering
+      \captionsetup{skip=2pt}
+      \includegraphics[width=\textwidth]{task3_01_ad_config_06_marcus}
+      \caption{\todo{replace this with a proper figure description}}
+      \label{fig:task2:ad_config_06}
+    \end{figure}
+  \item \todo{create three users}
+    \begin{figure}[H]
+      \centering
+      \captionsetup{skip=2pt}
+      \includegraphics[width=\textwidth]{task3_01_ad_config_08}
+      \caption{\todo{replace this with a proper figure description}}
+      \label{fig:task2:ad_config_08}
+    \end{figure}
+  \item \todo{add sysops to the domain admins group}
+    \begin{figure}[H]
+      \centering
+      \captionsetup{skip=2pt}
+      \includegraphics[width=\textwidth]{task3_01_ad_config_10}
+      \caption{\todo{replace this with a proper figure description}}
+      \label{fig:task2:ad_config_10}
+    \end{figure}
+    \begin{figure}[H]
+      \centering
+      \captionsetup{skip=2pt}
+      \includegraphics[width=\textwidth]{task3_01_ad_config_11}
+      \caption{\todo{replace this with a proper figure description}}
+      \label{fig:task2:ad_config_11}
+    \end{figure}
+\end{enumerate}
