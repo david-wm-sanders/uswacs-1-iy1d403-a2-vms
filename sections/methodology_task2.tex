@@ -80,7 +80,7 @@
     \end{enumerate}
 \end{enumerate}
 
-\noindent \todo{add stuff here about fixing the NAT with ESXi? and changing the hostname}
+% \noindent \todo{add stuff here about fixing the NAT with ESXi? and changing the hostname}
 
 \subsubsection{Configure an Active Directory Domain Controller}
 \begin{enumerate}[series=task2methodology3]
@@ -300,7 +300,63 @@ The majority of the process for setting up the user server, in terms of creating
       \label{fig:task2:vspherec_us11}
     \end{figure}
 \end{enumerate}
-\subsubsection{\todo{Set up a user store shared folder}}
-\todo{some stuff here...}
+\subsubsection{Set up a shared folder on the User Server}
+\begin{enumerate}[series=task2methodology5]
+  \item Open `Shares' under `File Storage and Services' and start the `New Share Wizard'.
+    \begin{figure}[H]
+      \centering
+      \captionsetup{skip=2pt}
+      \includegraphics[width=\textwidth]{task2_9_winserver2016us_12_share01}
+      \caption{Starting the `New Share Wizard'}
+      \label{fig:task2:vspherec_ussf01}
+    \end{figure}
+  \item Select `SMB Share - Quick'.
+    \begin{figure}[H]
+      \centering
+      \captionsetup{skip=2pt}
+      \includegraphics[width=\textwidth]{task2_9_winserver2016us_12_share02}
+      \caption{Selecting `SMB Share - Quick'}
+      \label{fig:task2:vspherec_ussf02}
+    \end{figure}
+  \item Create a custom path to a location for the new share.
+    \begin{figure}[H]
+      \centering
+      \captionsetup{skip=2pt}
+      \includegraphics[width=\textwidth]{task2_9_winserver2016us_12_share04}
+      \caption{Setting the `Share Location' for the new share}
+      \label{fig:task2:vspherec_ussf04}
+    \end{figure}
+  \item Tick the boxes to `Enable access-based enumeration' and `Encrypt data access'.
+    \begin{figure}[H]
+      \centering
+      \captionsetup{skip=2pt}
+      \includegraphics[width=\textwidth]{task2_9_winserver2016us_12_share06}
+      \caption{Configuring settings for the new share}
+      \label{fig:task2:vspherec_ussf06}
+    \end{figure}
+  \item Customise permissions for the new share. This entails disabling inheritance and then modifying the two Users principals to apply to `This folder only'. Once this is done, the two Users principals will merge to be a single Users principal.
+    \begin{figure}[H]
+      \centering
+      \captionsetup{skip=2pt}
+      \includegraphics[width=\textwidth]{task2_9_winserver2016us_12_share07}
+      \caption{Customising permissions for the new share}
+      \label{fig:task2:vspherec_ussf07}
+    \end{figure}
+    \begin{figure}[H]
+      \centering
+      \captionsetup{skip=2pt}
+      \includegraphics[width=\textwidth]{task2_9_winserver2016us_12_share08}
+      \caption{Modifying advanced permissions for the new share}
+      \label{fig:task2:vspherec_ussf08}
+    \end{figure}
+  \item Once this is done, step through the rest of the wizard to review the settings adjusted and then confirm the creation of the new share.
+    \begin{figure}[H]
+      \centering
+      \captionsetup{skip=2pt}
+      \includegraphics[width=\textwidth]{IY1D403_Windows_10_x64_Client-2018-05-22-15-46-11}
+      \caption{Checking that the client can see the new share}
+      \label{fig:task2:vspherec_ussfx}
+    \end{figure}
+\end{enumerate}
 % \subsubsection{\todo{Create a failover configuration}}
 % \todo{ahhhhh, how? \url{https://docs.vmware.com/en/VMware-vSphere/6.0/vsphere-esxi-vcenter-server-601-setup-mscs.pdf}}
