@@ -6,7 +6,7 @@
   \item Download Windows Server 2016 from the `Microsoft Imagine'\footnote{\url{https://imagine.microsoft.com/en-us}} website, as shown in Figure~\ref{fig:task2:winserver2016_download} in the \nameref{app:ancillaryscreenshots} appendix.
 \end{enumerate}
 
-\noindent I have taken a different approach for the next step to the normal approach of uploading the ISO via the vSphere Web Client or vSphere Client (desktop). This is due to a bug with ESXi 6.0.0 that prevents uploads when using the IPv6 address to access the instance's Web Client interface. When you use the `Datastore Browser' to upload a file, the upload freezes at 0\% and does not progress at all.
+\noindent I have taken a different approach for the next step to the normal approach of uploading the ISO via the vSphere Web Client or vSphere Client. This is due to a bug with ESXi 6.0.0 that prevents uploads when using the IPv6 address to access the instance's Web Client interface. When you use the `Datastore Browser' to upload a file, the upload freezes at 0\% and does not progress at all.
 
 \subsubsection{Transfer the ISO into the ESXi instance}
 \begin{enumerate}[resume*=task2methodology1]
@@ -25,22 +25,22 @@
 
 \subsubsection{Install Windows Server 2016 in a new VM}
 \begin{enumerate}[series=task2methodology2]
-  \item Create a new VM in the Web Client for the ESXi instance. Notable steps are detailed forthwith:
+  \item Create a new VM in the vSphere Web Client for the ESXi instance. Notable steps are detailed forthwith:
     \begin{enumerate}[label=(\alph*)]
       \item Select `Create a new virtual machine` in the `Select creation type` step.
-        \begin{figure}[H]
-          \centering
-          \captionsetup{skip=2pt}
-          \includegraphics[width=\textwidth]{task2_06_winserver2016_2_dc_crop}
-          \caption{Creating a new VM in ESXi}
-          \label{fig:task2:vspherewc_newvm1}
-        \end{figure}
+        % \begin{figure}[H]
+        %   \centering
+        %   \captionsetup{skip=2pt}
+        %   \includegraphics[width=\textwidth]{task2_06_winserver2016_2_dc_crop}
+        %   \caption{[2] vSphere Web Client: Creating a new VM in ESXi}
+        %   \label{fig:task2:vspherewc_newvm1}
+        % \end{figure}
       \item Give the VM a unique (within the ESXi instance) name and set the Guest OS Family and Version to be `Windows` and `Microsoft Windows Server 2016 (64-bit)` respectively.
         \begin{figure}[H]
           \centering
           \captionsetup{skip=2pt}
           \includegraphics[width=\textwidth]{task2_06_winserver2016_3_dc_crop}
-          \caption{Selecting the name and guest OS in the `New virtual machine` wizard}
+          \caption{[2] vSphere Web Client: Selecting the name and guest OS for the new VM}
           \label{fig:task2:vspherewc_newvm2}
         \end{figure}
       \item Mount the Windows Server 2016 ISO in the CD drive for the new virtual machine.
@@ -48,7 +48,7 @@
           \centering
           \captionsetup{skip=2pt}
           \includegraphics[width=\textwidth]{task2_06_winserver2016_9_dc_crop}
-          \caption{Selecting the ISO to run at boot in the new VM}
+          \caption{[2] vSphere Web Client: Selecting the ISO to run at boot in the new VM}
           \label{fig:task2:vspherewc_newvm3}
         \end{figure}
     \end{enumerate}
@@ -66,7 +66,7 @@
           \centering
           \captionsetup{skip=2pt}
           \includegraphics[width=\textwidth]{task2_6_winserver2016_15_dc}
-          \caption{Choosing `Datacenter Evaluation (Desktop Experience)'}
+          \caption{[2] Server 2016 Installer: Choosing `Datacenter Evaluation (Desktop Experience)'}
           \label{fig:task2:vspherec_windc1}
         \end{figure}
       \item Selecting a strong password for the administrative user. Below I have included a screenshot that shows the warning displayed in the event that the password provided does not meet the minimum complexity requirements.
@@ -74,7 +74,7 @@
           \centering
           \captionsetup{skip=2pt}
           \includegraphics[width=\textwidth]{task2_6_winserver2016_21_dc}
-          \caption{Warning message displayed if password does not meet complexity requirements}
+          \caption{[2] Server 2016 Installer: Warning message displayed if password does not meet complexity requirements}
           \label{fig:task2:vspherec_windc2}
         \end{figure}
     \end{enumerate}
@@ -92,7 +92,7 @@
          \centering
          \captionsetup{skip=2pt}
          \includegraphics[width=\textwidth]{task2_6_winserver2016_25_dc_config_3}
-         \caption{`Select installation type' on the Domain Controller}
+         \caption{[2] Server 2016 DC: `Select installation type' on the Domain Controller}
          \label{fig:task2:vspherec_windc2_c3}
        \end{figure}
       \item Choose this server by its hostname.
@@ -100,7 +100,7 @@
           \centering
           \captionsetup{skip=2pt}
           \includegraphics[width=\textwidth]{task2_6_winserver2016_25_dc_config_4}
-          \caption{Selecting the server from the server pool}
+          \caption{[2] Server 2016 DC: Selecting the server from the server pool}
           \label{fig:task2:vspherec_windc2_c4}
         \end{figure}
       \item Select the roles `Active Directory Domain Services' and `DNS Server' and confirm the addition of features for both.
@@ -108,21 +108,21 @@
           \centering
           \captionsetup{skip=2pt}
           \includegraphics[width=\textwidth]{task2_6_winserver2016_25_dc_config_7}
-          \caption{Select the roles `Active Directory Domain Services' and `DNS Server'}
+          \caption{[2] Server 2016 DC: Select the roles `Active Directory Domain Services' and `DNS Server'}
           \label{fig:task2:vspherec_windc2_c7}
         \end{figure}
         \begin{figure}[H]
           \centering
           \captionsetup{skip=2pt}
           \includegraphics[width=\textwidth]{task2_6_winserver2016_25_dc_config_5}
-          \caption{Add the features required for `Active Directory Domain Services'}
+          \caption{[2] Server 2016 DC: Add the features for `Active Directory Domain Services'}
           \label{fig:task2:vspherec_windc2_c5}
         \end{figure}
         \begin{figure}[H]
           \centering
           \captionsetup{skip=2pt}
           \includegraphics[width=\textwidth]{task2_6_winserver2016_25_dc_config_6}
-          \caption{Add the features required for the `DNS Server' role}
+          \caption{[2] Server 2016 DC: Add the features required for the `DNS Server' role}
           \label{fig:task2:vspherec_windc2_c6}
         \end{figure}
       \item Confirm the installation of the selected roles, selecting the option to `Restart the destination server automatically if required'.
@@ -130,7 +130,7 @@
           \centering
           \captionsetup{skip=2pt}
           \includegraphics[width=\textwidth]{task2_6_winserver2016_25_dc_config_10}
-          \caption{Confirm the installation by selecting `Install'}
+          \caption{[2] Server 2016 DC: Confirm the installation by selecting `Install'}
           \label{fig:task2:vspherec_windc2_c10}
         \end{figure}
       \item Create a new forest for the ADDS Deployment Configuration by selecting `Add a new forest' and giving a qualified domain name.
@@ -138,7 +138,7 @@
           \centering
           \captionsetup{skip=2pt}
           \includegraphics[width=\textwidth]{task2_6_winserver2016_25_dc_config_13}
-          \caption{Create a new forest for the domain}
+          \caption{[2] Server 2016 DC: Create a new forest for the domain}
           \label{fig:task2:vspherec_windc2_c13}
         \end{figure}
       \item Configure the `Domain Controller Options' -- as there are no servers in this deployment older than Windows Server 2016, select that as the functional level. Choose a strong password for the `Directory Services Restore Mode' password.
@@ -146,7 +146,7 @@
           \centering
           \captionsetup{skip=2pt}
           \includegraphics[width=\textwidth]{task2_6_winserver2016_25_dc_config_14}
-          \caption{Configuring options for the Domain Controller}
+          \caption{[2] Server 2016 DC: Configuring options for the Domain Controller}
           \label{fig:task2:vspherec_windc2_c14}
         \end{figure}
       \item As this is an internal deployment, an authoritative parent zone for the DNS cannot be found. Therefore ignore this warning step for `DNS Options' by selecting Next.
@@ -154,7 +154,7 @@
           \centering
           \captionsetup{skip=2pt}
           \includegraphics[width=\textwidth]{task2_6_winserver2016_25_dc_config_15}
-          \caption{DNS Options delegation warning}
+          \caption{[2] Server 2016 DC: DNS Options delegation warning}
           \label{fig:task2:vspherec_windc2_c15}
         \end{figure}
       \item Set the NetBIOS name that should be assigned to the domain.
@@ -162,7 +162,7 @@
           \centering
           \captionsetup{skip=2pt}
           \includegraphics[width=\textwidth]{task2_6_winserver2016_25_dc_config_16}
-          \caption{Setting the NetBIOS name}
+          \caption{[2] Server 2016 DC: Setting the NetBIOS name}
           \label{fig:task2:vspherec_windc2_c16}
         \end{figure}
       \item In the `Paths' step, click Next to accept the default options that are provided. Here we could choose to store the log files in a different partition (to prevent them from filling the C drive in the event that a lot of log files are created accidentally as a result of a misconfiguration) or on a remote logging server (for increased security -- by backing up the logs on the logging server regularly and/or watching attempts to modify logs via a firewall).
@@ -170,7 +170,7 @@
           \centering
           \captionsetup{skip=2pt}
           \includegraphics[width=\textwidth]{task2_6_winserver2016_25_dc_config_17}
-          \caption{Accept the default options for `Paths' for the ADDS configuration}
+          \caption{[2] Server 2016 DC: Accept the default `Paths' for the ADDS configuration}
           \label{fig:task2:vspherec_windc2_c17}
         \end{figure}
       \item Review the options selected throughout the configuration to confirm that the correct options have been selected at each stage. Notable here is the ability to view a PowerShell script, as shown in Figure~\ref{fig:task2:vspherec_windc2_c19}. PowerShell scripts could be used to automate the deployment of new servers when not using the Desktop Experience version of Windows Server 2016.
@@ -178,14 +178,14 @@
           \centering
           \captionsetup{skip=2pt}
           \includegraphics[width=\textwidth]{task2_6_winserver2016_25_dc_config_18}
-          \caption{Review the options for the Domain Controller configuration}
+          \caption{[2] Server 2016 DC: Review the options for the Domain Controller configuration}
           \label{fig:task2:vspherec_windc2_c18}
         \end{figure}
         \begin{figure}[H]
           \centering
           \captionsetup{skip=2pt}
           \includegraphics[width=\textwidth]{task2_6_winserver2016_25_dc_config_19}
-          \caption{PowerShell script for the DC configuration}
+          \caption{[2] Server 2016 DC: PowerShell script for the DC configuration}
           \label{fig:task2:vspherec_windc2_c19}
         \end{figure}
       \item Finally, review the `Prerequisites Check` step. We can see from the screenshot that all checked passed successfully. Select `Install' to complete the addition of the ADDS role.
@@ -193,7 +193,7 @@
           \centering
           \captionsetup{skip=2pt}
           \includegraphics[width=\textwidth]{task2_6_winserver2016_25_dc_config_20}
-          \caption{ADDS Prerequisites Check step}
+          \caption{[2] Server 2016 DC: Active Directory Domain Services Prerequisites Check step}
           \label{fig:task2:vspherec_windc2_c20}
         \end{figure}
       \item After the server has completed installation of Active Directory Domain Services and restarted automatically, login to the Administrator account as part of the new `DAVCOMM' domain.
@@ -201,7 +201,7 @@
           \centering
           \captionsetup{skip=2pt}
           \includegraphics[width=\textwidth]{task2_6_winserver2016_25_dc_config_21}
-          \caption{Logging into the DAVCOMM\textbackslash Administrator account on the Domain Controller}
+          \caption{[2] Server 2016 DC: Logging into the DAVCOMM\textbackslash Administrator account}
           \label{fig:task2:vspherec_windc2_c21}
         \end{figure}
       \item Check that the preferred DNS server address is set to 127.0.0.1 (this Domain Controller machine itself). This shows that the DNS Server role was installed and configured correctly. At this stage, also set the IP Address to be Static. This is done to ensure that we can consistently point the `Preferred DNS server' address of other servers and clients in the domain at the Domain Controller.
@@ -209,7 +209,7 @@
           \centering
           \captionsetup{skip=2pt}
           \includegraphics[width=\textwidth]{task2_6_winserver2016_25_dc_config_22_adjustipdns}
-          \caption{Configuring static IP on the Domain Controller and verifying DNS configuration}
+          \caption{[2] Server 2016 DC: Configuring a static IP and verifying DNS configuration}
           \label{fig:task2:vspherec_windc2_c22}
         \end{figure}
    \end{enumerate}
@@ -224,7 +224,7 @@ The majority of the process for setting up the user server, in terms of creating
       \centering
       \captionsetup{skip=2pt}
       \includegraphics[width=\textwidth]{task2_9_winserver2016us_1}
-      \caption{Reviewing the new VM options for the User Server in ESXi WebUI}
+      \caption{[2] vSphere Web Client: Reviewing User Server VM options in ESXi WebUI}
       \label{fig:task2:vspherec_us1}
     \end{figure}
   \item After installing the User Server, point the DNS to the static IP of the Domain Controller.
@@ -232,7 +232,7 @@ The majority of the process for setting up the user server, in terms of creating
       \centering
       \captionsetup{skip=2pt}
       \includegraphics[width=\textwidth]{task2_9_winserver2016us_2}
-      \caption{Changing the `Preferred DNS server' of the User Server}
+      \caption{[2] Server 2016 US: Changing the `Preferred DNS server'}
       \label{fig:task2:vspherec_us2}
     \end{figure}
   \item Confirm that the previous step has worked successfully by pinging the Domain Controller.
@@ -240,7 +240,7 @@ The majority of the process for setting up the user server, in terms of creating
       \centering
       \captionsetup{skip=2pt}
       \includegraphics[width=\textwidth]{task2_9_winserver2016us_3}
-      \caption{Checking that the User Server can see the Domain Controller}
+      \caption{[2] Server 2016 US: Checking that the User Server can see the DC}
       \label{fig:task2:vspherec_us3}
     \end{figure}
   \item Change the hostname of the User Server and connect to the domain at the same time.
@@ -248,7 +248,7 @@ The majority of the process for setting up the user server, in terms of creating
       \centering
       \captionsetup{skip=2pt}
       \includegraphics[width=\textwidth]{task2_9_winserver2016us_4}
-      \caption{Connecting the User Server `davcomm-us' to the domain}
+      \caption{[2] Server 2016 US: Connecting to the domain}
       \label{fig:task2:vspherec_us4}
     \end{figure}
   \item After authenticating with the domain, using the username and password of the Administrator account on the Domain Controller, we can see that we have joined the domain successfully.
@@ -256,7 +256,7 @@ The majority of the process for setting up the user server, in terms of creating
       \centering
       \captionsetup{skip=2pt}
       \includegraphics[width=\textwidth]{task2_9_winserver2016us_5}
-      \caption{`Welcome to the davcomm.internal domain' popup}
+      \caption{[2] Server 2016 US: `Welcome to the davcomm.internal domain' popup}
       \label{fig:task2:vspherec_us5}
     \end{figure}
   \item Restart the User Server to confirm the change to the hostname and then login to the domain.
@@ -264,7 +264,7 @@ The majority of the process for setting up the user server, in terms of creating
       \centering
       \captionsetup{skip=2pt}
       \includegraphics[width=\textwidth]{task2_9_winserver2016us_7}
-      \caption{Logging into the domain on the User Server}
+      \caption{[2] Server 2016 US: Logging into the domain on the User Server}
       \label{fig:task2:vspherec_us7}
     \end{figure}
   % \item \todo{after installing vmware tools we see this in the vsphere webui}
@@ -280,7 +280,7 @@ The majority of the process for setting up the user server, in terms of creating
       \centering
       \captionsetup{skip=2pt}
       \includegraphics[width=\textwidth]{task2_9_winserver2016us_9}
-      \caption{Adding the `File Server' role to the User Server}
+      \caption{[2] Server 2016 US: Adding the `File Server' role}
       \label{fig:task2:vspherec_us9}
     \end{figure}
   % \item \todo{set failover clustering role}
@@ -296,7 +296,7 @@ The majority of the process for setting up the user server, in terms of creating
       \centering
       \captionsetup{skip=2pt}
       \includegraphics[width=\textwidth]{task2_9_winserver2016us_11}
-      \caption{Confirming the role selections for the User Server}
+      \caption{[2] Server 2016 US: Confirming the role selections}
       \label{fig:task2:vspherec_us11}
     \end{figure}
 \end{enumerate}
@@ -307,7 +307,7 @@ The majority of the process for setting up the user server, in terms of creating
       \centering
       \captionsetup{skip=2pt}
       \includegraphics[width=\textwidth]{task2_9_winserver2016us_12_share01}
-      \caption{Starting the `New Share Wizard'}
+      \caption{[2] Server 2016 US: Starting the `New Share Wizard'}
       \label{fig:task2:vspherec_ussf01}
     \end{figure}
   \item Select `SMB Share - Quick'.
@@ -315,7 +315,7 @@ The majority of the process for setting up the user server, in terms of creating
       \centering
       \captionsetup{skip=2pt}
       \includegraphics[width=\textwidth]{task2_9_winserver2016us_12_share02}
-      \caption{Selecting `SMB Share - Quick'}
+      \caption{[2] Server 2016 US: Selecting `SMB Share - Quick'}
       \label{fig:task2:vspherec_ussf02}
     \end{figure}
   \item Create a custom path to a location for the new share.
@@ -323,7 +323,7 @@ The majority of the process for setting up the user server, in terms of creating
       \centering
       \captionsetup{skip=2pt}
       \includegraphics[width=\textwidth]{task2_9_winserver2016us_12_share04}
-      \caption{Setting the `Share Location' for the new share}
+      \caption{[2] Server 2016 US: Setting the `Share Location' for the new share}
       \label{fig:task2:vspherec_ussf04}
     \end{figure}
   \item Tick the boxes to `Enable access-based enumeration' and `Encrypt data access'.
@@ -331,7 +331,7 @@ The majority of the process for setting up the user server, in terms of creating
       \centering
       \captionsetup{skip=2pt}
       \includegraphics[width=\textwidth]{task2_9_winserver2016us_12_share06}
-      \caption{Configuring settings for the new share}
+      \caption{[2] Server 2016 US: Configuring settings for the new share}
       \label{fig:task2:vspherec_ussf06}
     \end{figure}
   \item Customise permissions for the new share. This entails disabling inheritance and then modifying the two Users principals to apply to `This folder only'. Once this is done, the two Users principals will merge to be a single Users principal.
@@ -339,30 +339,30 @@ The majority of the process for setting up the user server, in terms of creating
       \centering
       \captionsetup{skip=2pt}
       \includegraphics[width=\textwidth]{task2_9_winserver2016us_12_share07}
-      \caption{Customising permissions for the new share}
+      \caption{[2] Server 2016 US: Customising permissions for the new share}
       \label{fig:task2:vspherec_ussf07}
     \end{figure}
     \begin{figure}[H]
       \centering
       \captionsetup{skip=2pt}
       \includegraphics[width=\textwidth]{task2_9_winserver2016us_12_share08}
-      \caption{Modifying advanced permissions for the new share}
+      \caption{[2] Server 2016 US: Modifying advanced permissions for the new share}
       \label{fig:task2:vspherec_ussf08}
     \end{figure}
-  \item Once this is done, step through the rest of the wizard to review the settings adjusted and then confirm the creation of the new share.
+  \item \todo{damn, the client doesn't exist until task 3 is done} Once this is done, step through the rest of the wizard to review the settings adjusted and then confirm the creation of the new share.
     \begin{figure}[H]
       \centering
       \captionsetup{skip=2pt}
       \includegraphics[width=\textwidth]{IY1D403_Windows_10_x64_Client-2018-05-22-15-46-11}
-      \caption{Checking that the client can see the new share}
+      \caption{[2] Windows 10 Client: Checking that the client can see the new share}
       \label{fig:task2:vspherec_ussfx}
     \end{figure}
-  \item By attempting to access the shared folder of user `skywrath' from the user `lich', it can be seen that the security configuration (access-based enumeration) has been configured correctly.
+  \item \todo{damn, the client doesn't exist until task 3 is done} By attempting to access the shared folder of user `skywrath' from the user `lich', it can be seen that the security configuration (access-based enumeration) has been configured correctly.
     \begin{figure}[H]
       \centering
       \captionsetup{skip=2pt}
       \includegraphics[width=\textwidth]{IY1D403_Windows_10_x64_Client-2018-05-22-16-08-20}
-      \caption{Checking that the share is secured correctly}
+      \caption{[2] Windows 10 Client: Checking that the share is secured correctly}
       \label{fig:task2:vspherec_ussfx2}
     \end{figure}
 \end{enumerate}
