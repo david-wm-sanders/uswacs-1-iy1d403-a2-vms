@@ -11,7 +11,7 @@
           \centering
           \captionsetup{skip=2pt}
           \includegraphics[width=\textwidth]{IY1D403_Windows_10_x64_Client-2018-05-11-20-33-34}
-          \caption{Creating a new account during the Windows 10 Client install}
+          \caption{[3] Win 10 Client: Creating a new account during installation}
           \label{fig:task3:win10client_01}
         \end{figure}
       \item Select `Don't use'/`No'/`Basic' for the following steps as we are not interested in any of these features for this installation. I thought that selecting the `Enterprise' edition would skip these steps but unfortunately it does not.
@@ -19,7 +19,7 @@
           \centering
           \captionsetup{skip=2pt}
           \includegraphics[width=\textwidth]{IY1D403_Windows_10_x64_Client-2018-05-11-20-36-12}
-          \caption{Decline to use these extraneous features in the client}
+          \caption{[3] Win 10 Client: Decline to use extraneous features}
           \label{fig:task3:win10client_02}
         \end{figure}
       \item After completing the installation and logging into the client, set the `Preferred DNS server` to point to the static IP of the Domain Controller.
@@ -27,7 +27,7 @@
           \centering
           \captionsetup{skip=2pt}
           \includegraphics[width=\textwidth]{IY1D403_Windows_10_x64_Client-2018-05-11-20-45-19}
-          \caption{Setting the DNS for the client to point to the Domain Controller}
+          \caption{[3] Win 10 Client: Setting the DNS to point to the DC}
           \label{fig:task3:win10client_03}
         \end{figure}
       \item Connect to the domain in the same way the User Server was connected.
@@ -35,7 +35,7 @@
           \centering
           \captionsetup{skip=2pt}
           \includegraphics[width=\textwidth]{IY1D403_Windows_10_x64_Client-2018-05-17-19-04-55}
-          \caption{Connecting the client to the domain}
+          \caption{[3] Win 10 Client: Connecting to the domain}
           \label{fig:task3:win10client_04}
         \end{figure}
     \end{enumerate}
@@ -48,7 +48,7 @@
       \centering
       \captionsetup{skip=2pt}
       \includegraphics[width=\textwidth]{task3_01_ad_config_01}
-      \caption{Active Directory Users and Computers default users}
+      \caption{[3] Server 2016 DC: Active Directory Users and Computers default users}
       \label{fig:task3:ad_config_01}
     \end{figure}
   \item Create a new organisational unit called `Resources' and sub-OUs within `Resources' based on the privilege levels of users within the domain.
@@ -57,21 +57,21 @@
       \centering
       \captionsetup{skip=2pt}
       \includegraphics[width=\textwidth]{task3_01_ad_config_02}
-      \caption{Setting the information for a new User in AD}
+      \caption{[3] Server 2016 DC: Setting the information for a new user in AD}
       \label{fig:task3:ad_config_02}
     \end{figure}
     \begin{figure}[H]
       \centering
       \captionsetup{skip=2pt}
       \includegraphics[width=\textwidth]{task3_01_ad_config_03}
-      \caption{Setting the password for a new User in AD}
+      \caption{[3] Server 2016 DC: Setting the password for a new user in AD}
       \label{fig:task3:ad_config_03}
     \end{figure}
     \begin{figure}[H]
       \centering
       \captionsetup{skip=2pt}
       \includegraphics[width=\textwidth]{task3_01_ad_config_04}
-      \caption{Reviewing and accepting the creation of a new User in AD}
+      \caption{[3] Server 2016 DC: Reviewing the creation of a new user in AD}
       \label{fig:task3:ad_config_04}
     \end{figure}
   \item Create a second SysOp.
@@ -79,7 +79,7 @@
       \centering
       \captionsetup{skip=2pt}
       \includegraphics[width=\textwidth]{task3_01_ad_config_06_marcus}
-      \caption{Creating a second User in AD under `SysOps'}
+      \caption{[3] Server 2016 DC: Creating a second user in AD under `SysOps'}
       \label{fig:task3:ad_config_06}
     \end{figure}
   \item Create three unprivileged Users in AD as shown in the screenshot below.
@@ -87,7 +87,7 @@
       \centering
       \captionsetup{skip=2pt}
       \includegraphics[width=\textwidth]{task3_01_ad_config_08}
-      \caption{Active Directory > davcomm.internal > Resources > Users}
+      \caption{[3] Server 2016 DC: AD > davcomm.internal > Resources > Users}
       \label{fig:task3:ad_config_08}
     \end{figure}
   \item Add the `SysOps' to the Domain Admins group to give them the privileges required for them to manage the domain.
@@ -95,14 +95,14 @@
       \centering
       \captionsetup{skip=2pt}
       \includegraphics[width=\textwidth]{task3_01_ad_config_10}
-      \caption{Adding the `SysOps' to the Domain Admins group}
+      \caption{[3] Server 2016 DC: Adding the `SysOps' to the Domain Admins group}
       \label{fig:task3:ad_config_10}
     \end{figure}
     \begin{figure}[H]
       \centering
       \captionsetup{skip=2pt}
       \includegraphics[width=\textwidth]{task3_01_ad_config_11}
-      \caption{Reviewing the members of the Domain Admins group}
+      \caption{[3] Server 2016 DC: Reviewing the members of the Domain Admins group}
       \label{fig:task3:ad_config_11}
     \end{figure}
   \item Login to one of the user accounts on the client to prove that the Active Directory configuration has been performed successfully.
@@ -110,7 +110,7 @@
       \centering
       \captionsetup{skip=2pt}
       \includegraphics[width=\textwidth]{IY1D403_Windows_10_x64_Client-2018-05-17-19-08-34}
-      \caption{Checking on the client that the AD configuration works properly}
+      \caption{[3] Win 10 Client: Checking that the AD configuration works properly}
       \label{fig:task3:win10client_05}
     \end{figure}
 \end{enumerate}
