@@ -12,7 +12,9 @@ In a real-world deployment of ESXi, it would be installed bare-metal -- in other
   \item Download the vSphere environment from the \textit{OnTheHub\textsuperscript{\textregistered}} website\footnote{\url{https://onthehub.com/}}.
 \end{enumerate}
 
-\noindent From Figure~\ref{fig:task1:01_downloadvsphere} in the \nameref{app:ancillaryscreenshots} appendix, it shows that three pieces of software are available for download. It should be noted here that it is not made explicitly clear that the `VMware-VMvisor-Installer-6.0.0.update02-3620759.x86\_64.iso` is an installer for an updated version of ESXi 6.0.0 and is not an updated version of ESXi 6.5. As a result of this confusion, I initially installed the wrong version of ESXi insider VMware Workstation. In the methodology, I will include instructions for updating ESXi from version 6.0 to 6.5.
+\noindent From Figure~\ref{fig:task1:01_downloadvsphere} in the \nameref{app:ancillaryscreenshots} appendix, it shows that three pieces of software are available for download. It should be noted here that it is not made explicitly clear that the `VMware-VMvisor-Installer-6.0.0.update02-3620759.x86\_64.iso` is an installer for an updated version of ESXi 6.0.0 and is not an updated version of ESXi 6.5. As a result of this confusion, I installed the wrong version of ESXi insider VMware Workstation.
+% In the methodology, I will include instructions for updating ESXi from version 6.0 to 6.5.
+However, I was able to complete the majority of the work successfully with ESXi 6.0. Although I did research methodologies for updating ESXi \citep{site:vmwaredocs:esxihostupdateprocess:20180520,site:vmwaredocs:esxiupgradeesxcli:20160915}, I did not update ESXi in the end.
 
 \subsubsection{Create a new VM in VMware Workstation}
 \begin{enumerate}[resume*=task1methodology]
@@ -46,7 +48,8 @@ In a real-world deployment of ESXi, it would be installed bare-metal -- in other
         %   \caption{[1] VMware Workstation: Increasing the amount of memory for the ESXi VM}
         %   \label{fig:task1:02_vmwarewiz_04}
         % \end{figure}
-      \item Setup the `Host-only Network' only in the `Network Type' step. I will add the `NAT Adapter' later and demonstrate how to configure ESXi to use it correctly at that time.
+      \item Setup the `Host-only Network' only in the `Network Type' step.
+      % I will add the `NAT Adapter' later and demonstrate how to configure ESXi to use it correctly at that time.
         \begin{figure}[H]
           \centering
           \captionsetup{skip=2pt}
@@ -62,6 +65,7 @@ In a real-world deployment of ESXi, it would be installed bare-metal -- in other
         %   \caption{[1] VMware Workstation: Setting the maximum disk size for the VM}
         %   \label{fig:task1:02_vmwarewiz_08}
         % \end{figure}
+      \item At the final step of the `New Virtual Machine Wizard', choose to `Customize Hardware` and add a `NAT Adapter' to the VM.
     \end{enumerate}
 \end{enumerate}
 
@@ -80,7 +84,7 @@ In a real-world deployment of ESXi, it would be installed bare-metal -- in other
   \label{fig:task1:02_vmwarewiz_11_issue}
 \end{figure}
 
-\noindent Following the link provided in the pop-up redirected me to `VMware Knowledge Base Article 2146361'\footnote{\url{https://kb.vmware.com/s/article/2146361}}. Following steps 1 and 2, as detailed on the site under `Resolution' fixed the issue. I have included screenshots of these steps as Figures~\ref{fig:task1:02_vmware_11_res1} and~\ref{fig:task1:02_vmware_11_res2} in the \nameref{app:ancillaryscreenshots} appendix. After completing this resolution process, I was able to start the ESXi VM in VMware Workstation successfully and continued with the task.
+\noindent Following the link provided in the pop-up redirected me to `VMware Knowledge Base Article 2146361'\footnote{\url{https://kb.vmware.com/s/article/2146361}}\citep{site:kbvmware:deviceguard:20171208}. Following steps 1 and 2, as detailed on the site under `Resolution' fixed the issue. I have included screenshots of these steps as Figures~\ref{fig:task1:02_vmware_11_res1} and~\ref{fig:task1:02_vmware_11_res2} in the \nameref{app:ancillaryscreenshots} appendix. After completing this resolution process, I was able to start the ESXi VM in VMware Workstation successfully and continued with the task.
 
 \begin{enumerate}[resume*=task1methodology]
   \item Step through the EXSi installer. I have highlighted some notable steps below:
@@ -177,5 +181,3 @@ Several methods exist for managing the ESXi instance remotely -- primarily they 
 \end{enumerate}
 
 \noindent On the vSphere Client `Connection' window (as shown in Figure~\ref{fig:task1:vspheredesktopclient_02}), it says ``All vSphere features introduced in vSphere 5.5. and beyond are available only through the vSphere Web Client. The traditional vSphere Client will continue to operate, supporting the same feature set as vSphere 5.0.'' Due to this, I decided to, as far as possible, manage the ESXi instance via the Web Client interface. I did, however, have to use the vSphere Client for some tasks such as configuring the instance to use the NAT adapter correctly.
-
-\todo{Add `Adding the NAT to ESXi here...'}
