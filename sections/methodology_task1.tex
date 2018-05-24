@@ -1,6 +1,6 @@
 \pagebreak
 \subsection{Task 1: Build a VMware Environment}
-For this demonstration secure data centre environment setup, I installed ESXi inside VMware Workstation 12 on my University of South Wales Applied Cyber Security designated workstation. This allowed me to use a single physical machine to manage and screenshot (via VMware's `Print Screen' functionality) the ESXi installation directly, manage the servers installed inside ESXi via the vSphere Web Client and vSphere Client (desktop), and test the configuration from a Windows 10 Enterprise client that was also installed inside VMware Workstation 12.
+For this demonstration secure data centre environment setup, I installed ESXi inside VMware Workstation 12 on my University of South Wales Applied Cyber Security designated workstation. This allowed me to use a single physical machine to manage and screenshot (via VMware's `Print Screen' functionality) the ESXi installation directly, manage the servers installed inside ESXi via the vSphere Web Client and vSphere Client, and test the configuration from a Windows 10 Enterprise client that was also installed inside VMware Workstation 12.
 
 In a real-world deployment of ESXi, it would be installed bare-metal -- in other words, ESXi would be installed directly onto the physical hardware as the primary Operating System and would then be managed remotely for the most part.
 
@@ -141,14 +141,14 @@ However, I was able to complete the majority of the work successfully with ESXi 
 \noindent It should be noted that the IPv6 address is marked as `STATIC' rather than `DHCP' -- I have decided to use this address to connect to the ESXi instance as this will prevent issues related to the IPv4 address possibly changing in the event I restart the ESXi VM, restart VMware Workstation, or restart my physical workstation.
 
 \subsubsection{Connect to the ESXi instance}
-Several methods exist for managing the ESXi instance remotely -- primarily they are the vSphere Client (desktop) and vSphere Web Client. I will detail how to setup and use both below.
+Several methods exist for managing the ESXi instance remotely -- primarily they are the vSphere Client and vSphere Web Client. I will detail how to setup and use both below.
 
 \begin{enumerate}[resume*=task1methodology]
   \item Connect to the ESXi instance:
     \begin{enumerate}[label=(\alph*)]
-      \item via the vSphere Client (desktop):
+      \item via the vSphere Client:
         \begin{enumerate}[label=\roman*.]
-          \item Install the vSphere Client (desktop) from the\\`VMware-viclient-all-6.0.0-3562874.exe' that was downloaded as part of the vSphere environment package from \textit{OnTheHub\textsuperscript{\textregistered}}.
+          \item Install the vSphere Client from the\\`VMware-viclient-all-6.0.0-3562874.exe' that was downloaded as part of the vSphere environment package from \textit{OnTheHub\textsuperscript{\textregistered}}.
             % \begin{figure}[H]
             %   \centering
             %   \captionsetup{skip=2pt}
@@ -180,4 +180,5 @@ Several methods exist for managing the ESXi instance remotely -- primarily they 
     \end{enumerate}
 \end{enumerate}
 
-\noindent On the vSphere Client `Connection' window (as shown in Figure~\ref{fig:task1:vspheredesktopclient_02}), it says ``All vSphere features introduced in vSphere 5.5. and beyond are available only through the vSphere Web Client. The traditional vSphere Client will continue to operate, supporting the same feature set as vSphere 5.0.'' Due to this, I decided to, as far as possible, manage the ESXi instance via the Web Client interface. I did, however, have to use the vSphere Client for some tasks such as configuring the instance to use the NAT adapter correctly.
+\noindent On the vSphere Client `Connection' window (as shown in Figure~\ref{fig:task1:vspheredesktopclient_02}), it says ``All vSphere features introduced in vSphere 5.5. and beyond are available only through the vSphere Web Client. The traditional vSphere Client will continue to operate, supporting the same feature set as vSphere 5.0.'' Due to this, I decided to, as far as possible, manage the ESXi instance via the vSphere Web Client interface.
+% I did, however, have to use the vSphere Client for some tasks such as configuring the instance to use the NAT adapter correctly.
